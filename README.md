@@ -1,20 +1,9 @@
-# Getting Started with Create React App
+# Deploying Wagg.ly on AWS
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Creating an Amplify Application
 
-## Available Scripts
+### Go to [Amplify Hosting](https://eu-west-2.console.aws.amazon.com/amplify/).
 
-In the project directory, you can run:
+Select *New app* --> *Host web app* --> *GitHub*.
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Once authorisation has been provided between AWS and GitHub. Select the repository which holds your React application.
