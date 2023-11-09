@@ -1,11 +1,17 @@
 #waggly-title {
+  padding-right: 25%;
+  padding-left: 25%;
   text-align: center;
   margin-top: 15%;
 }
 
-#button-grid {
-  text-align: center;
-  margin-top: 50px;
-  display: grid;
-  gap: 5px;
+.button-container {
+  display: flex;
+  justify-content: center;
+  column-gap: 7px;
+}
+
+.register-button {
+  width: 150px;
+  height: 30px;
 }

@@ -5,16 +5,17 @@ function Home() {
     return (
         <>
             <h1 id="waggly-title">Wagg.ly</h1>
-
-            <div id="button-grid">
-                <Link to="/register-dog">
+            
+            <div className="button-container">
+                <Link className="register-link" to="/register-dog">
                     <button className="register-button">Register Dog</button>
                 </Link>
                 
-                <Link to="/register-walker">
+                <Link className="register-link" to="/register-walker">
                     <button className="register-button">Register Walker</button>
                 </Link>
             </div>
+
         </>
     )
 }
