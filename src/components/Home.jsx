@@ -1,10 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import logo from "../images/dog-icon.png"
+
 function Home() {
     return (
-        <>
-            <h1 id="waggly-title">Wagg.ly</h1>
+        <div className="page"> 
+            <div id="logo-container">
+                <img id="dog-logo" src={logo} alt="dog icon logo"/>
+            </div>
+
+            <h1 className="page-title">Wagg.ly</h1>
             
             <div className="button-container">
                 <Link className="register-link" to="/register-dog">
@@ -16,7 +22,7 @@ function Home() {
                 </Link>
             </div>
 
-        </>
+        </div>
     )
 }
 
