@@ -6,15 +6,14 @@ function Home() {
         <>
             <h1 id="waggly-title">Wagg.ly</h1>
 
-            <ul>
-                <li>
-                    <Link to="/register-dog">Register</Link>
-                </li>
-            </ul>
-
             <div id="button-grid">
-                <button className="register-button">Register Dog</button>
-                <button className="register-button">Register Walker</button>
+                <Link to="/register-dog">
+                    <button className="register-button">Register Dog</button>
+                </Link>
+                
+                <Link to="/register-walker">
+                    <button className="register-button">Register Walker</button>
+                </Link>
             </div>
         </>
     )
