@@ -1,6 +1,6 @@
-.page {
+/* .page {
   margin-top: 10%;
-}
+} */
 
 .page-title {
   text-align: center;
@@ -10,10 +10,14 @@
   width: 200px;
 }
 
+#form-dog-logo {
+  width: 100px;
+}
+
 #logo-container {
   display: flex;
   justify-content: center;
-  margin-top: 50px;
+  margin-top: 7%;
 }
 
 .button-container {
@@ -23,7 +27,13 @@
   margin-top: 15px;
 }
 
-.register-button {
+.register-button, .form-button {
   width: 150px;
   height: 30px;
+}
+
+.combined-input-form {
+  display: grid;
+  padding-left: 20%;
+  padding-right: 20%;
 }
