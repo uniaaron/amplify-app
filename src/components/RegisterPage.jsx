@@ -14,14 +14,6 @@ function updateAvailability(event) {
     walkerAvailability[days.indexOf(dayChange)] = event.target.checked
 }
 
-function API() {
-    fetch("https://ayblvlyw3e.execute-api.eu-west-2.amazonaws.com/beta/walkers")
-    .then((response) => response.json())
-    .then((data) => {
-        console.log(data)
-    })
-}
-
 function CombinedIntputs(subject) {
     const [name, setName] = useState(""); // dog or walker (subject) name
     const [phoneNum, setPhoneNum] = useState(); // owner or walker phone number
@@ -30,6 +22,37 @@ function CombinedIntputs(subject) {
 
     const [dogBreed, setDogBreed] = useState(""); // only for dog breed
     const [ownerName, setOwnerName] = useState(""); // only for dog owner
+
+    function reset() {
+        setName("")
+        setPhoneNum()
+        setBirthDate(Date)
+        setHomeAddress("")
+        setDogBreed("")
+        setOwnerName("")
+    }
+
+    function API_POST() {
+        var RequestOptions = {
+            method: "POST",
+            body: JSON.stringify(
+                {
+                    "name": name,
+                    "breed": dogBreed,
+                    "date_of_birth": birthDate,
+                    "owners_name": ownerName,
+                    "owners_number": phoneNum,
+                    "address": homeAddress
+                }
+            )
+        }
+    
+        fetch("https://pxuvfvxvph.execute-api.eu-west-2.amazonaws.com/beta/dogs", RequestOptions)
+        .then((response) => response.json())
+        .then((data) => {
+            console.log(data)
+        })
+    }
     
     return (
         <>
@@ -111,10 +134,10 @@ function CombinedIntputs(subject) {
 
             <div className="button-container">
                 <Link to="/">
-                        <button className="form-button">Cancel</button>
+                        <button onClick={reset} className="form-button">Cancel</button>
                 </Link>
 
-                <button className="form-button" onClick={API}>Submit</button>
+                <button className="form-button" onClick={API_POST}>Submit</button>
             </div>
         </>
     )
