@@ -22,6 +22,16 @@ function Home() {
                 </Link>
             </div>
 
+            <div className="button-container">
+                <Link className="register_link" to="/all-dogs">
+                    <button className="register-button">View Dogs</button>
+                </Link>
+
+                <Link className="register_link" to="/all-walkers">
+                    <button className="register-button">View Walkers</button>
+                </Link>
+            </div>
+
         </div>
     )
 }

@@ -16,7 +16,7 @@ function updateAvailability(event) {
 
 function CombinedIntputs(subject) {
     const [name, setName] = useState(""); // dog or walker (subject) name
-    const [phoneNum, setPhoneNum] = useState(); // owner or walker phone number
+    const [phoneNum, setPhoneNum] = useState(""); // owner or walker phone number
     const [birthDate, setBirthDate] = useState(Date); // dog or walker birthday
     const [homeAddress, setHomeAddress] = useState(""); // dog or walker address
 
@@ -33,25 +33,47 @@ function CombinedIntputs(subject) {
     }
 
     function API_POST() {
-        var RequestOptions = {
-            method: "POST",
-            body: JSON.stringify(
-                {
-                    "name": name,
-                    "breed": dogBreed,
-                    "date_of_birth": birthDate,
-                    "owners_name": ownerName,
-                    "owners_number": phoneNum,
-                    "address": homeAddress
-                }
-            )
+        if (subject === "Dog") {
+            var RequestOptions = {
+                method: "POST",
+                body: JSON.stringify(
+                    {
+                        "name": name,
+                        "breed": dogBreed,
+                        "date_of_birth": birthDate,
+                        "owners_name": ownerName,
+                        "owners_phone_number": phoneNum,
+                        "address": homeAddress
+                    }
+                )
+            }
+            fetch("https://pxuvfvxvph.execute-api.eu-west-2.amazonaws.com/beta/dogs", RequestOptions)
+            .then((response) => response.json())
+            .then((data) => {
+                console.log(data)
+            })
+        } else {
+            var RequestOptions = {
+                method: "POST",
+                body: JSON.stringify(
+                    {
+                        "name": name,
+                        "phone_number": phoneNum,
+                        "date_of_birth": birthDate,
+                        "address": homeAddress,
+                        "availability": walkerAvailability,
+                    }
+                )
+            }
+            fetch("https://pxuvfvxvph.execute-api.eu-west-2.amazonaws.com/beta/walkers", RequestOptions)
+            .then((response) => response.json())
+            .then((data) => {
+                console.log(data)
+            })
         }
+        
     
-        fetch("https://pxuvfvxvph.execute-api.eu-west-2.amazonaws.com/beta/dogs", RequestOptions)
-        .then((response) => response.json())
-        .then((data) => {
-            console.log(data)
-        })
+        
     }
     
     return (
