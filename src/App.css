@@ -44,3 +44,33 @@
   display: grid;
   justify-items: left;
 }
+
+.table-container, .loading-header {
+  display: flex;
+  justify-content: center;
+  overflow-x: auto;
+}
+
+table, th, td:not(.day) {
+  border: 1px solid;
+  padding: 10px;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.day {
+  text-align: center;
+  border-top: 1px solid;
+}
+
+table {
+  width: 50%;
+}
+
+th, tr:hover {
+  background-color: antiquewhite;
+}
+
+/* #mon-head:hover #mon {
+  background-color: rgb(250, 211, 160);
+} */
