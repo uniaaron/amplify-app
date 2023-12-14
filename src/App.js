@@ -4,6 +4,8 @@ import './App.css';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 
 import Home from "./components/Home";
+import Login from './components/LoginPage';
+
 import RegisterDog from './components/RegisterDog';
 import RegisterWalker from './components/RegisterWalker';
 import ViewDogs from './components/ViewDogs';
@@ -14,7 +16,7 @@ function App() {
     <>
       <Router>
         <Routes>
-          <Route exact path="/" element={<Home/>} />
+          <Route exact path="/" element={<Login/>} />
           <Route path="/register-dog" element={<RegisterDog/>} />
           <Route path="/register-walker" element={<RegisterWalker/>} /> 
           <Route path="/all-dogs" element={<ViewDogs/>} /> 

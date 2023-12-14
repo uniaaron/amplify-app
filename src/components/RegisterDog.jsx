@@ -47,8 +47,8 @@ function RegisterDog() {
     return (
         <>
          <div className="page">
-            <div id="form-logo-container">
-                <img id="form-dog-logo" src={logo} alt="dog icon logo"/>
+            <div id="logo-container">
+                <img id="dog-logo" src={logo} alt="dog icon logo"/>
             </div>
 
             <h1 className="page-title">Register Dog</h1>
