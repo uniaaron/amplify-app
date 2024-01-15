@@ -9,7 +9,7 @@ function ViewDogs() {
     const [data, setData] = useState(null)
 
     useEffect(() => {
-        fetch("https://pxuvfvxvph.execute-api.eu-west-2.amazonaws.com/beta/dogs", {method: "GET"})
+        fetch("https://v5h2cy3d68.execute-api.eu-west-2.amazonaws.com/beta/dogs", {method: "GET"})
         .then((response) => response.json())
         .then(json => setData(json["body"])) 
         .catch(error => console.error(error))

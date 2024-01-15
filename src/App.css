@@ -23,18 +23,18 @@ input[type=text], input[type=password] {
   border-radius: 4px;
 }
 
-.account-type-container {
-  font-size: 16px;
-}
-
-.button-container {
+.account-type-container, .button-container {
   display: flex;
   justify-content: center;
-  column-gap: 10px;
+  column-gap: 5px;
   margin-top: 10px;
 }
 
-button, input[type=submit] {
+.button-container {
+  column-gap: 10px;
+}
+
+button {
   width: 150px;
   height: 30px;
   border-radius: 4px;
