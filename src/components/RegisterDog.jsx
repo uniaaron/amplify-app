@@ -37,7 +37,7 @@ function RegisterDog() {
             )
         }
 
-        fetch("https://pxuvfvxvph.execute-api.eu-west-2.amazonaws.com/beta/dogs", RequestOptions)
+        fetch("https://v5h2cy3d68.execute-api.eu-west-2.amazonaws.com/beta/dogs", RequestOptions)
         .then((response) => response.json())
         .then((data) => {
             console.log(data)
@@ -47,8 +47,8 @@ function RegisterDog() {
     return (
         <>
          <div className="page">
-            <div id="logo-container">
-                <img id="dog-logo" src={logo} alt="dog icon logo"/>
+            <div id="form-logo-container">
+                <img id="form-dog-logo" src={logo} alt="dog icon logo"/>
             </div>
 
             <h1 className="page-title">Register Dog</h1>
