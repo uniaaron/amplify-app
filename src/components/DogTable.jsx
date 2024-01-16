@@ -1,11 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 
-import logo from "../images/dog-icon.png"
-
-
-
-function ViewDogs() {
+function DogTable() {
     const [data, setData] = useState(null)
 
     useEffect(() => {
@@ -15,7 +10,7 @@ function ViewDogs() {
         .catch(error => console.error(error))
     }, [])
 
-    function DogTable(data) {
+    function ShowDogTable(data) {
         return (
             <div className="table-container">
                 <table className="table-display">
@@ -44,24 +39,9 @@ function ViewDogs() {
 
     return (
         <>
-        <div className="page">
-            <div id="logo-container">
-                <img id="dog-logo" src={logo} alt="dog icon logo"/>
-            </div>
-
-            <h1 className="page-title">All Dogs</h1>
-
-            {data ? DogTable(data) : <h2 className="loading-header">Loading...</h2>}
-            
-            <div className="button-container">
-                <Link to="/">
-                        <button className="form-button">Cancel</button>
-                </Link>
-            </div>
-
-        </div>
+            {data ? ShowDogTable(data) : <h2 className="loading-header">Loading...</h2>}
         </>
     )
 }
 
-export default ViewDogs;
+export default DogTable;

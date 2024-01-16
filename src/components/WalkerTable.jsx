@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import logo from "../images/dog-icon.png"
 
-function ViewWalkers() {
+function WalkerTable() {
     const [data, setData] = useState(null)
 
     useEffect(() => {
@@ -13,7 +13,7 @@ function ViewWalkers() {
         .catch(error => console.error(error))
     }, [])
 
-    function WalkerTable(data) {
+    function ShowWalkerTable(data) {
         return (
             <div className="table-container">
                 <table className="table-display">
@@ -71,7 +71,7 @@ function ViewWalkers() {
 
             <h1 className="page-title">All Walkers</h1>
 
-            {data ? WalkerTable(data) : <h2 className="loading-header">Loading...</h2>}
+            {data ? ShowWalkerTable(data) : <h2 className="loading-header">Loading...</h2>}
 
             <div className="button-container">
                 <Link to="/">
@@ -84,4 +84,4 @@ function ViewWalkers() {
     )
 }
 
-export default ViewWalkers;
+export default WalkerTable;

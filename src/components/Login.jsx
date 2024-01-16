@@ -8,20 +8,30 @@ function Login() {
 
     const [username, setUsername] = useState()
     const [password, setPassword] = useState()
-    
+
     function validateUser() {
         var valid = false
-
+        var loggedUserNum
+    
         for (let i in data) {
             if (data[i]["username"] === username && data[i]["password"] === password) {
                 console.log("logged in")
                 valid = true
+                loggedUserNum = i
+                break
             } else {
                 console.log("access denied")
             }
         }
+
+        const loggedUser = [data[loggedUserNum]["name"], data[loggedUserNum]["username"]]
+        
         if (valid === true) {
-            navigate("/home", {replace: true})
+            if (data[loggedUserNum]["is_walker"] === true) {
+                navigate("/walker-dashboard", { state: loggedUser })
+            } else {
+                navigate("/owner-dashboard", { state: loggedUser })
+            }
         }
     }
 
