@@ -3,8 +3,11 @@ import { useLocation, Link } from "react-router-dom";
 import { useEffect, React } from "react";
 import DogTable from "./DogTable";
 
+import Availability from "./Availability";
+
 function WalkerUserDash() {
     const { state } = useLocation()
+    console.log(state)
     return (
         <>
         <div className="page"> 
@@ -13,16 +16,29 @@ function WalkerUserDash() {
             </div>
 
             <h1 className="page-title">Wagg.ly</h1>
-            <p id="welcome-message">Welcome {state[0]}, as a walker you can search for available dogs to walk.</p>
+            <p id="welcome-message">Welcome {state[0]} to the walker dashboard, as a walker you can search for available dogs to walk.</p>
             
             <div className="dashboard">
-                <DogTable/>
-                <div className="button-container">
-                    <Link to="/">
-                            <button className="form-button">Log Out</button>
-                    </Link>
+                <div className="dash-item" id="item1">
+                    <h3>Available Dogs</h3>
+                    <DogTable/>
+                </div>
+
+                <div className="dash-item" id="item2">
+                    <Availability/>
+                </div>
+
+                <div className="dash-item" id="item3">
+                    <h3>Currently Walking</h3>
                 </div>
             </div>
+
+            <div className="button-container" >
+                <Link to="/">
+                    <button className="form-button">Log Out</button>
+                </Link>
+            </div>
+
         </div>
         </>
     )

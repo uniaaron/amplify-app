@@ -10,24 +10,43 @@ function Register() {
 
 
     function createUser() {
-        var RequestOptions = {
-            method: "POST",
-            body: JSON.stringify(
-                {
-                    "name": name,
-                    "username": username,
-                    "password": password,
-                    "is_walker": isWalker,
-                    "availability": availability,
-                }
-            )
-        }
+        if (isWalker === true) {
+            var walkerRequestOptions = {
+                method: "POST",
+                body: JSON.stringify(
+                    {
+                        "name": name,
+                        "username": username,
+                        "password": password,
+                        "availability": availability,
+                    }
+                )
+            }
 
-        fetch("https://v5h2cy3d68.execute-api.eu-west-2.amazonaws.com/beta/users", RequestOptions)
-        .then((response) => response.json())
-        .then((data) => {
-            console.log(data)
-        })
+            fetch(("https://v5h2cy3d68.execute-api.eu-west-2.amazonaws.com/beta/walkers"), walkerRequestOptions)
+            .then((response) => response.json())
+            .then((data) => {
+                console.log(data)
+            })
+
+        } else {
+            var ownerRequestOptions = {
+                method: "POST",
+                body: JSON.stringify(
+                    {
+                        "name": name,
+                        "username": username,
+                        "password": password,
+                    }
+                )
+            }
+            
+            fetch(("https://v5h2cy3d68.execute-api.eu-west-2.amazonaws.com/beta/owners"), ownerRequestOptions)
+            .then((response) => response.json())
+            .then((data) => {
+                console.log(data)
+            })
+        }
     }
 
     return (
@@ -54,7 +73,7 @@ function Register() {
             </form>
         </div>
         <div className="button-container">
-            <button onClick={createUser}>Submit</button>
+            <button onClick={() => createUser()}>Submit</button>
         </div>
         </>
     )

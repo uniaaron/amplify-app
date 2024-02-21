@@ -1,5 +1,5 @@
 function Availability() {
-    const walkerAvailability = [false, false, false, false, false, false, false];
+    var walkerAvailability = [false, false, false, false, false, false, false];
     
     const updateAvailability = (event) => {
         const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]

@@ -53,6 +53,11 @@ button {
   justify-items: left;
 }
 
+legend {
+  font-weight: bold;
+  font-size: medium;
+}
+
 .table-container, .loading-header {
   display: flex;
   justify-content: center;
@@ -63,7 +68,6 @@ table, th, td:not(.day) {
   border: 1px solid;
   padding: 10px;
   border-collapse: collapse;
-  width: 100%;
 }
 
 .day {
@@ -71,10 +75,31 @@ table, th, td:not(.day) {
   border-top: 1px solid;
 }
 
-table {
-  width: 50%;
-}
-
 th, tr:hover {
   background-color: antiquewhite;
+}
+
+#welcome-message {
+  text-align: center;
+}
+
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 10px;
+  align-items: center;
+}
+
+.dash-item {
+  /* border: 3px solid black; */
+  padding: 10px;
+  text-align: center;
+  justify-self: center;
+  width: 80%;
+}
+
+#item3 {
+  grid-column: 1/3;
+  width: 70%;
 }

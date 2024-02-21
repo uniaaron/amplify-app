@@ -16,7 +16,6 @@ function DogTable() {
                 <table className="table-display">
                     <thead>
                         <tr>
-                            <th>ID</th>
                             <th>Name</th>
                             <th>Breed</th>
                             <th>Date of birth</th>
@@ -24,7 +23,6 @@ function DogTable() {
                         {data.map((val, key) => {
                             return (
                                 <tr id="table-elements" key={key}>
-                                    <td>{val.dog_ID}</td>
                                     <td>{val.Name}</td>
                                     <td>{val.Breed}</td>
                                     <td>{val.DateOfBirth}</td>

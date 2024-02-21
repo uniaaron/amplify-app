@@ -9,7 +9,14 @@ function Login() {
     const [username, setUsername] = useState()
     const [password, setPassword] = useState()
 
-    function validateUser() {
+    function validateUser(subject) {
+        fetch(("https://v5h2cy3d68.execute-api.eu-west-2.amazonaws.com/beta/" + subject), {method: "GET"})
+        .then((response) => response.json())
+        .then(json => setData(json["body"])) 
+        .catch(error => console.error(error))
+
+        console.log(data)
+
         var valid = false
         var loggedUserNum
     
@@ -23,24 +30,16 @@ function Login() {
                 console.log("access denied")
             }
         }
-
-        const loggedUser = [data[loggedUserNum]["name"], data[loggedUserNum]["username"]]
         
         if (valid === true) {
-            if (data[loggedUserNum]["is_walker"] === true) {
+            const loggedUser = [data[loggedUserNum]["name"], data[loggedUserNum]["username"]]
+            if (subject === "walkers") {
                 navigate("/walker-dashboard", { state: loggedUser })
             } else {
                 navigate("/owner-dashboard", { state: loggedUser })
             }
         }
     }
-
-    useEffect(() => {
-        fetch("https://v5h2cy3d68.execute-api.eu-west-2.amazonaws.com/beta/users", {method: "GET"})
-        .then((response) => response.json())
-        .then(json => setData(json["body"])) 
-        .catch(error => console.error(error))
-    }, [])
 
     return (
         <>
@@ -55,7 +54,8 @@ function Login() {
             </form>
         </div>
         <div className="button-container">
-            <button onClick={validateUser}>Submit</button>
+            <button onClick={() => validateUser("walkers")}>Login as Walker</button>
+            <button onClick={() => validateUser("owners")}>Login as Owner</button>
         </div>
         
         </>
