@@ -18,14 +18,18 @@ function DogTable() {
                         <tr>
                             <th>Name</th>
                             <th>Breed</th>
-                            <th>Date of birth</th>
+                            <th>Age</th>
+                            <th>Owner Name</th>
+                            <th>Owner Contact</th>
                         </tr>
                         {data.map((val, key) => {
                             return (
                                 <tr id="table-elements" key={key}>
-                                    <td>{val.Name}</td>
-                                    <td>{val.Breed}</td>
-                                    <td>{val.DateOfBirth}</td>
+                                    <td>{val.name}</td>
+                                    <td>{val.breed}</td>
+                                    <td>{val.age}</td>
+                                    <td>{val.owner_name}</td>
+                                    <td>{val.owner_contact}</td>
                                 </tr>
                             )
                         })}

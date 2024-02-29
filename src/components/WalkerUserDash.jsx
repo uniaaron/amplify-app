@@ -3,8 +3,6 @@ import { useLocation, Link } from "react-router-dom";
 import { useEffect, React } from "react";
 import DogTable from "./DogTable";
 
-import Availability from "./Availability";
-
 function WalkerUserDash() {
     const { state } = useLocation()
     console.log(state)
@@ -25,10 +23,6 @@ function WalkerUserDash() {
                 </div>
 
                 <div className="dash-item" id="item2">
-                    <Availability/>
-                </div>
-
-                <div className="dash-item" id="item3">
                     <h3>Currently Walking</h3>
                 </div>
             </div>

@@ -1,4 +1,3 @@
-import Availability from "./Availability";
 import { useState } from "react";
 
 function Register() {
@@ -6,8 +5,6 @@ function Register() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [isWalker, setIsWalker] = useState(false);
-    const [availability, setAvailability] = useState([0]);
-
 
     function createUser() {
         if (isWalker === true) {
@@ -18,7 +15,6 @@ function Register() {
                         "name": name,
                         "username": username,
                         "password": password,
-                        "availability": availability,
                     }
                 )
             }
@@ -69,7 +65,6 @@ function Register() {
                     <label for="owner">Owner</label><br/>
                 </div>
 
-                {isWalker===true ? <Availability/> : <></>}
             </form>
         </div>
         <div className="button-container">
