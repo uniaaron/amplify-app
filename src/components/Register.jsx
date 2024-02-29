@@ -3,6 +3,7 @@ import { useState } from "react";
 function Register() {
     const [name, setName] = useState("");
     const [username, setUsername] = useState("");
+    const [mobile, setMobile] = useState("");
     const [password, setPassword] = useState("");
     const [isWalker, setIsWalker] = useState(false);
 
@@ -15,6 +16,7 @@ function Register() {
                         "name": name,
                         "username": username,
                         "password": password,
+                        "mobile": mobile
                     }
                 )
             }
@@ -23,6 +25,7 @@ function Register() {
             .then((response) => response.json())
             .then((data) => {
                 console.log(data)
+                window.location.reload(true)
             })
 
         } else {
@@ -33,6 +36,7 @@ function Register() {
                         "name": name,
                         "username": username,
                         "password": password,
+                        "mobile": mobile
                     }
                 )
             }
@@ -41,6 +45,7 @@ function Register() {
             .then((response) => response.json())
             .then((data) => {
                 console.log(data)
+                window.location.reload(true)
             })
         }
     }
@@ -55,6 +60,8 @@ function Register() {
                 <input type="text" id="fname" name="fname" onChange={(e) => setName(e.target.value)}/><br/>
                 <label>Username:</label>
                 <input type="text" id="username" name="username" onChange={(e) => setUsername(e.target.value)}/><br/>
+                <label>Contact Number:</label>
+                <input type="text" id="mobile" name="mobile" onChange={(e) => setMobile(e.target.value)}/><br/>
                 <label>Password:</label>
                 <input type="password" id="password" name="password" onChange={(e) => setPassword(e.target.value)}/><br/>
 

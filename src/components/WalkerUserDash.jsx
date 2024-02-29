@@ -1,11 +1,20 @@
 import logo from "../images/dog-icon.png"
 import { useLocation, Link } from "react-router-dom";
-import { useEffect, React } from "react";
+import { React } from "react";
 import DogTable from "./DogTable";
 
 function WalkerUserDash() {
     const { state } = useLocation()
+    const loggedUser = {
+        "password": state[0],
+        "username": state[1],
+        "mobile": state[2],
+        "name": state[4],
+        "id": state[3],
+    }
+
     console.log(state)
+    
     return (
         <>
         <div className="page"> 
@@ -14,7 +23,7 @@ function WalkerUserDash() {
             </div>
 
             <h1 className="page-title">Wagg.ly</h1>
-            <p id="welcome-message">Welcome {state[0]} to the walker dashboard, as a walker you can search for available dogs to walk.</p>
+            <p id="welcome-message">Welcome {loggedUser["name"]} to the walker dashboard, as a walker you can search for available dogs to walk.</p>
             
             <div className="dashboard">
                 <div className="dash-item" id="item1">

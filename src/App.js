@@ -16,12 +16,6 @@ function App() {
           <Route path="/walker-dashboard" element={<WalkerUserDash/>} />
           <Route path="/owner-dashboard" element={<OwnerUserDash/>} />
           
-          
-          {/* <Route path="/register-dog" element={<RegisterDog/>} />
-          <Route path="/register-walker" element={<RegisterWalker/>} /> 
-          <Route path="/all-dogs" element={<ViewDogs/>} /> 
-          <Route path="/all-walkers" element={<ViewWalkers/>} />  */}
-          
           <Route path="*" element={<Navigate to="/" />} />
 
         </Routes>

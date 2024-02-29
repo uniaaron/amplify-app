@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { useNavigate } from 'react-router-dom';
 
 function Login() {
@@ -15,11 +15,9 @@ function Login() {
         .then(json => setData(json["body"])) 
         .catch(error => console.error(error))
 
-        console.log(data)
-
         var valid = false
         var loggedUserNum
-    
+        
         for (let i in data) {
             if (data[i]["username"] === username && data[i]["password"] === password) {
                 console.log("logged in")
@@ -32,11 +30,19 @@ function Login() {
         }
         
         if (valid === true) {
-            const loggedUser = [data[loggedUserNum]["name"], data[loggedUserNum]["username"]]
+            const loggedUser_dict = data[loggedUserNum]
+            var loggedUser_list = []
+            for (let key in loggedUser_dict) {
+                if (loggedUser_dict.hasOwnProperty(key)) {
+                  let value = loggedUser_dict[key];
+                  loggedUser_list.push(value)
+                }
+            }
+
             if (subject === "walkers") {
-                navigate("/walker-dashboard", { state: loggedUser })
+                navigate("/walker-dashboard", { state: loggedUser_list })
             } else {
-                navigate("/owner-dashboard", { state: loggedUser })
+                navigate("/owner-dashboard", { state: loggedUser_list })
             }
         }
     }
@@ -57,7 +63,6 @@ function Login() {
             <button onClick={() => validateUser("walkers")}>Login as Walker</button>
             <button onClick={() => validateUser("owners")}>Login as Owner</button>
         </div>
-        
         </>
     )
 }

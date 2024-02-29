@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-function DogTable() {
+function MyDogsTable(properties) {
     const [data, setData] = useState()
 
     useEffect(() => {
@@ -10,8 +10,14 @@ function DogTable() {
         .catch(error => console.error(error))
     }, [])
 
+    const myDogs = []
+    for (let i in data) {
+        if (data[i]["owner_ID"] === properties.id) {
+            myDogs.push(data[i])
+        }
+    }
 
-    function ShowDogTable(data) {
+    function ShowDogTable() {
         return (
             <div className="table-container">
                 <table className="table-display">
@@ -20,17 +26,13 @@ function DogTable() {
                             <th>Name</th>
                             <th>Breed</th>
                             <th>Age</th>
-                            <th>Owner Name</th>
-                            <th>Owner Contact</th>
                         </tr>
-                        {data.map((val, key) => {
+                        {myDogs.map((val, key) => {
                             return (
                                 <tr id="table-elements" key={key}>
                                     <td>{val.name}</td>
                                     <td>{val.breed}</td>
                                     <td>{val.age}</td>
-                                    <td>{val.owner_name}</td>
-                                    <td>{val.owner_contact}</td>
                                 </tr>
                             )
                         })}
@@ -42,9 +44,9 @@ function DogTable() {
 
     return (
         <>
-            {data ? ShowDogTable(data) : <h2 className="loading-header">Loading...</h2>}
+            {myDogs ? ShowDogTable() : <h2 className="loading-header">Loading...</h2>}
         </>
     )
 }
 
-export default DogTable;
+export default MyDogsTable;
