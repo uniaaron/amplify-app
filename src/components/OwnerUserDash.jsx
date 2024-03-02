@@ -23,7 +23,7 @@ function OwnerUserDash() {
             </div>
 
             <h1 className="page-title">Wagg.ly</h1>
-            <p id="welcome-message">Welcome {loggedUser["name"]} to the owner dashboard, as a owner you can search for available walkers for your dog.</p>
+            <p id="welcome-message">Welcome {loggedUser["name"]} to the owner dashboard, as a owner you can add your dogs which will be shown to walkers who will contact you.</p>
             
             <div className="dashboard">
                 <div className="dash-item" id="item1">

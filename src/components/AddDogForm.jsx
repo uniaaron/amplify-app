@@ -38,7 +38,7 @@ function AddDogForm(properties) {
                 <label>Breed:</label><br/>
                 <input value={breed} onChange={(e) => setBreed(e.target.value)}/><br/>
                 <label>Age:</label><br/>
-                <input value={age} onChange={(e) => setAge(e.target.value)}/><br/>
+                <input type="number" value={age} onChange={(e) => setAge(e.target.value)}/><br/>
                 <button onClick={addDog}>Save Dog</button>
             </div>
         </>

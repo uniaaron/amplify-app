@@ -23,17 +23,11 @@ function WalkerUserDash() {
             </div>
 
             <h1 className="page-title">Wagg.ly</h1>
-            <p id="welcome-message">Welcome {loggedUser["name"]} to the walker dashboard, as a walker you can search for available dogs to walk.</p>
+            <p id="welcome-message">Welcome {loggedUser["name"]} to the walker dashboard, as a walker you can view all available dogs to walk and how to contact them.</p>
             
-            <div className="dashboard">
-                <div className="dash-item" id="item1">
-                    <h3>Available Dogs</h3>
-                    <DogTable/>
-                </div>
-
-                <div className="dash-item" id="item2">
-                    <h3>Currently Walking</h3>
-                </div>
+            <div>
+                <h3 className="page-title">Available Dogs</h3>
+                <DogTable/>
             </div>
 
             <div className="button-container" >

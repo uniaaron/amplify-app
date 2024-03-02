@@ -86,8 +86,9 @@ th, tr:hover {
 .dashboard {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
   align-items: center;
+  margin-left: 20%;
+  margin-right: 20%;
 }
 
 .dash-item {
