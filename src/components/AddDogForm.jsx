@@ -1,9 +1,18 @@
 import { useState } from "react"
+import handleClick from "./DogTable"
 
 function AddDogForm(properties) {
     const [name, setName] = useState("")
     const [age, setAge] = useState("")
     const [breed, setBreed] = useState("")
+
+    function reset() {
+        setName("")
+        setAge("")
+        setBreed("")
+
+        window.location.reload(); 
+    }
 
     function addDog() {
         var walkerRequestOptions = {
@@ -23,7 +32,8 @@ function AddDogForm(properties) {
         fetch(("https://v5h2cy3d68.execute-api.eu-west-2.amazonaws.com/beta/dogs"), walkerRequestOptions)
         .then((response) => response.json())
         .then((data) => {console.log(data)})
-        .then(() => window.location.reload(true))
+
+        reset()
     }
 
     return (

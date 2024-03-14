@@ -1,15 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useReducer } from "react";
 
 function DogTable() {
     const [data, setData] = useState()
+    const [ignored, forceUpdate] = useReducer(x => x + 1, 0);
+
+    function handleClick() {
+        forceUpdate();
+    }
 
     useEffect(() => {
         fetch("https://v5h2cy3d68.execute-api.eu-west-2.amazonaws.com/beta/dogs", {method: "GET"})
         .then((response) => response.json())
         .then(json => setData(json["body"])) 
         .catch(error => console.error(error))
-    }, [])
-
+    })
 
     function ShowDogTable(data) {
         return (
