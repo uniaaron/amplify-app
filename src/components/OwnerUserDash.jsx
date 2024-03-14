@@ -1,4 +1,6 @@
 import { Link, useLocation } from "react-router-dom"
+import { useState, useEffect } from "react";
+
 import AddDogForm from "./AddDogForm"
 import MyDogsTable from "./MyDogsTable";
 
@@ -6,13 +8,29 @@ import logo from "../images/dog-icon.png"
 
 function OwnerUserDash() {
     const { state } = useLocation()
-
+    
     const loggedUser = {
         "password": state[0],
         "username": state[1],
         "mobile": state[2],
         "name": state[3],
         "id": state[4],
+    }
+
+    const [data, setData] = useState()
+
+    useEffect(() => {
+        fetch("https://v5h2cy3d68.execute-api.eu-west-2.amazonaws.com/beta/dogs", {method: "GET"})
+        .then((response) => response.json())
+        .then(json => setData(json["body"])) 
+        .catch(error => console.error(error))
+    })
+
+    const myDogs = []
+    for (let i in data) {
+        if (data[i]["owner_ID"] === loggedUser["id"]) {
+            myDogs.push(data[i])
+        }
     }
 
     return (
@@ -28,7 +46,7 @@ function OwnerUserDash() {
             <div className="dashboard">
                 <div className="dash-item" id="item1">
                     <h3>My Dogs</h3>
-                    <MyDogsTable id={loggedUser["id"]}></MyDogsTable>
+                    <MyDogsTable id={myDogs}></MyDogsTable>
                 </div>
                 <div className="dash-item" id="item2">
                     <AddDogForm user={loggedUser}></AddDogForm>

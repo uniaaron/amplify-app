@@ -1,22 +1,8 @@
 import React, { useState, useEffect } from "react";
 
 function MyDogsTable(properties) {
-    const [data, setData] = useState()
-
-    useEffect(() => {
-        fetch("https://v5h2cy3d68.execute-api.eu-west-2.amazonaws.com/beta/dogs", {method: "GET"})
-        .then((response) => response.json())
-        .then(json => setData(json["body"])) 
-        .catch(error => console.error(error))
-    }, [])
-
-    const myDogs = []
-    for (let i in data) {
-        if (data[i]["owner_ID"] === properties.id) {
-            myDogs.push(data[i])
-        }
-    }
-
+    
+    const myDogs = properties.id
     function ShowDogTable() {
         return (
             <div className="table-container">
