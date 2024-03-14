@@ -1,5 +1,4 @@
 import { useState } from "react"
-import handleClick from "./DogTable"
 
 function AddDogForm(properties) {
     const [name, setName] = useState("")
@@ -10,8 +9,6 @@ function AddDogForm(properties) {
         setName("")
         setAge("")
         setBreed("")
-
-        window.location.reload(); 
     }
 
     function addDog() {
