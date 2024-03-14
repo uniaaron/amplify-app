@@ -22,11 +22,8 @@ function AddDogForm(properties) {
 
         fetch(("https://v5h2cy3d68.execute-api.eu-west-2.amazonaws.com/beta/dogs"), walkerRequestOptions)
         .then((response) => response.json())
-        .then((data) => {
-            console.log(data)
-        })
-
-        window.location.reload(true)
+        .then((data) => {console.log(data)})
+        .then(() => window.location.reload(true))
     }
 
     return (
